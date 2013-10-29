@@ -4,7 +4,12 @@ require 'sinatra/activerecord'
 set :database, 'sqlite3:///db/resource_library.sqlite3'
 
 class Topic < ActiveRecord::Base
-  has_many :resources
+  attr_accessor :name
+  validates :name, presence: true
+   has_many :resources
+
+
+
 
   def tag_with!(tag)
     # IMPLEMENT ME
